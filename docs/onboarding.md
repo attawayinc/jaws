@@ -1,4 +1,4 @@
-# Getting Started
+code# Getting Started
 
 Onboarding is very straightforward and shouldn't require a lot of effort:
 

@@ -197,8 +197,8 @@ Get-Content $OutputDir/global `
         Describe = "Clean up Keys"
         Test     = { -not (Test-Path $OutputDir/key) -and -not (Test-Path $OutputDir/key.pub) }
         Set      = {
-            rm $OutputDir/key
-            rm $OutputDir/key.pub
+            Remove-Item $OutputDir/key
+            Remove-Item $OutputDir/key.pub
         }
     }
 ) | Invoke-Requirement | Format-Checklist
