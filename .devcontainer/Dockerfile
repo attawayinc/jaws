@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM mcr.microsoft.com/powershell:6.2.3-ubuntu-16.04
+FROM mcr.microsoft.com/powershell/test-deps:preview-ubuntu-18.04
 
 # Install git, process tools
 RUN apt-get update && apt-get -y install git procps jq apt-transport-https ca-certificates curl gnupg-agent software-properties-common lsb-release \
@@ -21,6 +21,5 @@ RUN apt-get update && apt-get -y install git procps jq apt-transport-https ca-ce
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
-
 ADD ./Install-Dependencies.ps1 ./Install-Dependencies.ps1
 RUN pwsh ./Install-Dependencies.ps1

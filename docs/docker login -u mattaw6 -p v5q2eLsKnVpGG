@@ -1,0 +1,11 @@
+docker login -u mattaw6 -p v5q2eLsKnVpGGx89v/zuOV6z3waVVIdS mattaw.azurecr.io
+ACR_NAME=mattaw        # The name of your Azure container registry
+GIT_USER=attawayinc      # Your GitHub user account name
+GIT_PAT=d8b1ff2574c5f256764e7c9b69ad67331ee024fb # The PAT you generated in the previous section
+az acr task create \
+    --registry $ACR_NAME \
+    --name taskhelloworld \
+    --image helloworld:{{.Run.ID}} \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --file Dockerfile \
+    --git-access-token $GIT_PAT
