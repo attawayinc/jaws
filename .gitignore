@@ -4,3 +4,4 @@ tf/**/*.tfstate*
 /out/
 /.test/out
 .DS_Store
+.vscode
